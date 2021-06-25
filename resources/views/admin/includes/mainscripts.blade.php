@@ -23,7 +23,7 @@
       // (string | mandatory) the text inside the notification
       text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
       // (string | optional) the image to display on the left
-      image: 'adminpanel/img/islam.jpg',
+      image: ,
       // (bool | optional) if you want it to fade out on its own or just sit there
       sticky: false,
       // (int | optional) the time you want it to be alive for before fading out

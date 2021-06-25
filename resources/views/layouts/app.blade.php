@@ -61,8 +61,15 @@
                                 </a>
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if(Auth::user()->userid == 1 or 2)
-                                    <a href="{{route('admin')}}">Admin</a>
+                                    
+
+                                    @if (Auth::user()->userid == 1 OR Auth::user()->userid == 2)
+                                        <a href="{{route('admin')}}" class="dropdown-item">Dashboard
+                                        </a>
+                                            
+                                        @else
+                                        <a href="{{route('user')}}" class="dropdown-item">Welcome
+                                        </a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

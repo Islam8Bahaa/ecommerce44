@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
-class checkadmin
+use Illuminate\Support\Facades\Auth;
+
+class CheckAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,10 +18,15 @@ class checkadmin
     public function handle(Request $request, Closure $next)
     {
         $isAdmin = Auth::user()->userid ; 
-        if($isAdmin != 1){
+        if($isAdmin == 1){
             return redirect()->route('admin');
             
         }
         return $next($request);
     }
+    
 }
+
+
+
+

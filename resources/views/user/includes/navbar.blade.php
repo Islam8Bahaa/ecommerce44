@@ -1,50 +1,45 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
+<div class="container">
+    <section class="info-account">
+        <div class="orders main-color">
+            <p class="main-color">Free Shopping on All orders Over $75 !</p>
+        </div>
+        <div class="my-info">
+            <ul>
+                <li><a href="#" class="acticeColor">My Account</a></li>
+                <li><a href="#" class="main-color">Wishlist</a></li>
+                <li><a href="#" class="main-color">Currency:Usd</a></li>
+                <li><a href="#" class="main-color">My Cart</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+<section class="search">
+    <div class="searchInput">
+        <span class="icons">
+        <input type="text" placeholder="Search Here What You Need...." ><i class="fas fa-search"></i>
+        </span> 
+    </div>
+</section>
+<!-- End Designing The Website Search -->
+
+<!-- Start Designing The menu section -->
+<section class="menu">
     <div class="container">
-    <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
-        Paper Kit 2
-        </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-bar bar1"></span>
-        <span class="navbar-toggler-bar bar2"></span>
-        <span class="navbar-toggler-bar bar3"></span>
-        </button>
+        <p>Fshion</p>
+        <div class="menu-content">
+            <ul>
+                <li><a href="#" class="acticeColor">Home</a></li>
+                <span>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Footwear</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#">Blog</a></li>
+                </span>
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-        <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-            <i class="fa fa-twitter"></i>
-            <p class="d-lg-none">Twitter</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-            <i class="fa fa-facebook-square"></i>
-            <p class="d-lg-none">Facebook</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-            <i class="fa fa-instagram"></i>
-            <p class="d-lg-none">Instagram</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/paper-kit" target="_blank">
-            <i class="fa fa-github"></i>
-            <p class="d-lg-none">GitHub</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" target="_blank" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
-        </li>
-        <li class="nav-item">
-            <a href="https://www.creative-tim.com/product/paper-kit-2-pro?ref=pk2-free-local" target="_blank" class="btn btn-danger btn-round">Upgrade to Pro</a>
-        </li>
-        </ul>
-    </div>
-    </div>
-</nav>
+</section>
 <!-- End Navbar -->

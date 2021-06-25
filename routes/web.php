@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\RelationsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\indexController;
 
 
 /*
@@ -24,6 +25,8 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
+Route::get('/user' ,[indexController::class , 'index'])->middleware('auth' ,'check.user')->name('user');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -37,4 +40,6 @@ Route::get('/email',function(){
     Mail::to('6e7963b1048379')->send(new WelcomeMail());
     return new WelcomeMail();
 });
+
+
 
