@@ -4,774 +4,1215 @@
 @endsection
 @section('content')
 
-    <!-- Start Designing The collection section -->
-    <section class="collection">
-        <div class="container">
-            <div class="collection-cont">
-                <div class="cont-img"></div>
-                <div class="cont-info">
-                    <p class="mainB"><span>H o t</span><span>C o l l e c t i o n</span></p>
-                    <p class="title">New Trend For Women</p>
-                    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis blanditiis, dolorum odio exercitationem explicabo veniam voluptatum repudiandae optio rerum quasi.</p>
-                    <button><a href="#">Shop Now</a></button>
-                </div>
-            </div>
-            <div class="collection-view">
-                <div class="view-info">
-                    <button><a href="#">VIEW COLLECTION</a></button>
-                </div>
-                <div class="view-img"></div>
-            </div>
-        </div>
-    </section>
-<!-- End Designing The collection section -->
-
-<!-- Start Designing The featured section -->
-    <section class="featured">
-        <div class="container">
-            <div class="feat-title">
-                <h3>Featured Items</h3>
-                <div class="feat-itmes">
-                    <ul>
-                        <li><a href="#" class="acticeColor">All</a></li>
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Start Designing The featured-boxes -->
-        <div class="feat-box">
-            <div class="container">
-                <div class="row">
-                    <!-- Start Designing The featured box 1 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
+<main>
+        <section>
+            <div class="collection">
+                <div class="container">
+                    <div class="trend">
+                        <div class="woman">
+                            <img src="{{URL::asset('userpanel/img/fashion-pretty-cool-young-girl-shopping-bags-wearing-black-hat-white-pants-over-colorful-orange-background-79063329.jpg')}}"
+                                alt="">
+                            <div class="text">
+                                <h3 class="main-color"> Hot Collection</h3>
+                                <h1> New Trend For Women</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil rem tempore magni
+                                    harum
+                                    repellendus nulla. Molestiae adipisci unde sapiente incidunt? Corporis error sequi
+                                    temporibus a molestiae maiores distinctio quod impedit?</p>
+                                <button>Shop Now</button>
                             </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
+                        </div>
+                        <div class="men">
+                            <div class="box">
+                                <img src="{{URL::asset('userpanel/img/pexels-photo-842811.jpeg')}}" alt="">
+                            </div>
+                            <div class="box">
+                                <img src="{{URL::asset('userpanel/img/82782504fb584f1112f99ddf55107945.png')}}" alt="">
                             </div>
                         </div>
                     </div>
-                    <!-- End Designing The featured box 1 -->
-
-                    <!-- Start Designing The featured box 2 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                </div>
+            </div>
+        </section>
+        <!-- End Collection-->
+        <!-- Start feature -->
+        <section>
+            <div class="feature">
+                <div class="container">
+                    <div class="item">
+                        <div class="line"></div>
+                        <h2> Featuerd Items </h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="All">
+                        <ul>
+                            <li><a href="">All</a></li>
+                            <li><a href="">Men</a></li>
+                            <li><a href="">Women</a></li>
+                            <li><a href="">Kids</a></li>
+                        </ul>
+                    </div>
+                    <!-------------------------------------------Start Swiper-------------------------------------------->
+                    <div class="swiper-container mySwiper">
+                        <div class="swiper-wrapper">
+                            <!------------------------- Slide One-------------------->
+                            <div class="swiper-slide">
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $products->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$products->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$products->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!---------------------Slide Two--------------------->
+                            <div class="swiper-slide">
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!---------------------Slide Three--------------------->
+                            <div class="swiper-slide">
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!---------------------Slide Four--------------------->
+                            <div class="swiper-slide">
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
+                                <!---------------------Slide One--------------------->
+                                <div class="swiper-slide">
+                                    @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                </div>
+                                <!---------------------Slide Two--------------------->
+                                <div class="swiper-slide">
+                                    @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                </div>
+                                <!---------------------Slide Three--------------------->
+                                <div class="swiper-slide">
+                                    @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                </div>
+                                <!---------------------Slide Four--------------------->
+                                <div class="swiper-slide">
+                                    @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                                 </div>
                             </div>
                         </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
+                    </div>
+                    <!-------------------------------------------End Swiper-------------------------------------------->
+                </div>
+            </div>
+        </section>
+        <!-- End feature -->
+        <!--Start image-->
+        <section>
+            <div class="image">
+                <div class="container">
+                    <div class="photo">
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/photo-1426523038054-a260f3ef5bc9.jpg')}}" alt="">
+                            <div class="discount">
+                                <h1>70% OFF</h1>
                             </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
+                            <div class="text">
+                                <p>Tao Kinben Na?</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/photo-1590399830582-0bd885dee8e2.jpg')}}" alt="">
+                            <div class="na">
+                                <span>AMR CHEHARA KHARAP NA</span>
+                            </div>
+                            <div class="dia">
+                                <span><span class="main-color">Chehara</span> Dia Ki hoy</span>
                             </div>
                         </div>
                     </div>
-                    <!-- End Designing The featured box 2 -->
-
-                    <!-- Start Designing The featured box 3 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                </div>
+            </div>
+        </section>
+        <!-- End image-->
+        <!--Start Top-->
+        <section>
+            <div class="top">
+                <div class="container">
+                    <div class="trend">
+                        <div class="line"></div>
+                        <h2> Trending Items </h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="first">
+                        @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Designing The featured box 3 -->
-
-                    <!-- Start Designing The featured box 4 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 4 -->
-
-                <div class="row">
-                    <!-- Start Designing The featured box 1 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Designing The featured box 1 -->
-
-                    <!-- Start Designing The featured box 2 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                        </div>
+                                @endforeach
                     </div>
-                    <!-- End Designing The featured box 2 -->
-
-                    <!-- Start Designing The featured box 3 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                    <div class="second">
+                        @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Designing The featured box 3 -->
-
-                    <!-- Start Designing The featured box 4 -->
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                        <div class="box-img">
-                            <p class="price">150 $</p>
-                            <div class="overflew">
-                                <div>
-                                    <i class="far fa-eye"></i>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="img-content">
-                            <p>Suspendisse et.</p>
-                            <div class="stars">
-                                <!-- <span class="activ-stars"> -->
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <!-- </span> -->
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="interaction">
-                                <div><i class="fas fa-heart"></i></div>
-                                <div><i class="fas fa-shopping-cart"></i></div>
-                                <div><i class="fas fa-plus"></i></div>
-                            </div>
-                            <!-- End Designing The featured box 4 -->
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @foreach ($products as $product)
+                                <div class="box">
+                                    <img src="{{asset('uploads/products/' . $product->pimg)}}" alt="">
+                                    <div class="price">
+                                        <span> {{$product->pprice}} L.E</span>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{$product->pname}}</h2>
+                                        <div class="star">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="sm-icons">
+                                            <div><i class="fas fa-heart"></i></div>
+                                            <div><a href="{{route('cart.add' , $product->id)}}"><i class="fas fa-shopping-cart"></i></a></div>
+                                            <div><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                    </div>
+                    <div class="button">
+                        <button>LOAD MORE</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- End Designing The featured section -->
-
-<!-- Start Designing The offer section -->
-    <section class="offer">
-        <div class="col-12 col-md-12 col-lg-6 col-xl-6 img1">
-            <div class="img1-content">
-                <span class="info">
-                    <p class="price">70 %</p>
-                    <p>Off</p>
-                </span>
-                <p class="para">Tao Kinben Na?</p>
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-6 col-xl-6 img2">
-            <div class="img2-content">
-                <p>AMR CHEHARA KHARAP NA</p>
-                <p class="p"><span class="acticeColor">Chehara</span> Dia Ki hoy</p>
-            </div>
-        </div>
-    </section>
-<!-- End Designing The offer section -->
-
-<!-- Start Designing The Trending section -->
-<section class="featured">
-    <div class="container">
-        <div class="feat-title">
-            <h3>Trending Item</h3>
-        </div>
-    </div>
-    <!-- Start Designing The featured-boxes -->
-    <div class="feat-box">
-        <div class="container">
-            <div class="row">
-                <!-- Start Designing The featured box 1 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
+        </section>
+        <!--End Top-->
+        <!-- Start Shoes-->
+        <section>
+            <div class="shoes">
+                <div class="container">
+                    <div class="items">
+                        <div class="quote main-color">
+                            <i class="fas fa-quote-left"></i>
                         </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
+                        <div class="text">
+                            <p>"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae aliquam voluptatum unde
+                                atque! Officia, perspiciatis labore alias voluptates, assumenda magnam est reiciendis
+                                quis,
+                                dolorem voluptatem minus voluptate eveniet eius praesentium?"</p>
                         </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 1 -->
-
-                <!-- Start Designing The featured box 2 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 2 -->
-
-                <!-- Start Designing The featured box 3 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 3 -->
-
-                <!-- Start Designing The featured box 4 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
+                        <div class="pic">
+                            <img src="{{URL::asset('userpanel/img/photo-1509967419530-da38b4704bc6.jpg')}}" alt="">
+                            <h5>MD SHAHIN ALAM</h5>
+                            <p>CEO OF TTCM</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End Designing The featured box 4 -->
-
-            <div class="row">
-                <!-- Start Designing The featured box 1 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
+        </section>
+        <!-- End Shoes-->
+        <!--Start Blog-->
+        <section>
+            <div class="latest">
+                <div class="container">
+                    <div class="text">
+                        <div class="line"></div>
+                        <h2> Latest Blog </h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="blog">
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/photo-1499887142886-791eca5918cd.jpg')}}" alt="">
+                            <div class="text-1">
+                                <h2>Some Headline Here</h2>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio
+                                    error ex
+                                    provident.</p>
+                                <button>READ MORE</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 1 -->
-
-                <!-- Start Designing The featured box 2 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/photo-1499887142886-791eca5918cd.jpg')}}" alt="">
+                            <div class="text-1">
+                                <h2>Some Headline Here</h2>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio
+                                    error ex
+                                    provident.</p>
+                                <button>READ MORE</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 2 -->
-
-                <!-- Start Designing The featured box 3 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Designing The featured box 3 -->
-
-                <!-- Start Designing The featured box 4 -->
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 box">
-                    <div class="box-img">
-                        <p class="price">150 $</p>
-                        <div class="overflew">
-                            <div>
-                                <i class="far fa-eye"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img-content">
-                        <p>Suspendisse et.</p>
-                        <div class="stars">
-                            <!-- <span class="activ-stars"> -->
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <i class="fas fa-star active"></i>
-                            <!-- </span> -->
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="interaction">
-                            <div><i class="fas fa-heart"></i></div>
-                            <div><i class="fas fa-shopping-cart"></i></div>
-                            <div><i class="fas fa-plus"></i></div>
-                        </div>
-                        <!-- End Designing The featured box 4 -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<!-- End Designing The Trending section -->
-
-<!-- Start Designing The person section -->
-    <section class="person">
-        <div class="person-img">
-            <div class="person-content">
-                <div class="person-icon">
-                    <i class="fas fa-comment"></i>
-                </div>
-                <p class="p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi perferendis quod quam praesentium sit reprehenderit earum mollitia ducimus rerum dolorum!</p>
-                <div class="person-para">
-                    <img src="img/face5.jpg" alt="" width="100px">
-                    <p>Asmaa Mohamed</p>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- End Designing The person section -->
-
-<!-- Start Designing The latest section -->
-    <section class="latest">
-        <h3>latest Blog</h3>
-        <div class="container">
-        <div class="swiper-container mySwiper">
-            <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <div class="para">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/photo-1499887142886-791eca5918cd.jpg')}}" alt="">
+                            <div class="text-1">
+                                <h2>Some Headline Here</h2>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dignissimos harum odio
+                                    error ex
+                                    provident.</p>
+                                <button>READ MORE</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
+            </div>
+        </section>
+        <!-- End Blog-->
+        <!--Start Theme-->
+        <section>
+            <div class="theme">
+                <div class="container">
+                    <div class="text">
+                        <div class="line"></div>
+                        <h2> Shop By Brand </h2>
+                        <div class="line"></div>
                     </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+                    <div class="icon">
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/themeforest-logo-768x363.png')}}" alt="">
                         </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/themeforest-logo-768x363.png')}}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/themeforest-logo-768x363.png')}}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{{URL::asset('userpanel/img/themeforest-logo-768x363.png')}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+        </section>
+        <!--  End Theme-->
+        <section>
+            <div class="about">
+                <div class="container">
+                    <div class="footer">
+                        <div class="box">
+                            <h4>SHOPS</h4>
+                            <p>New in</p>
+                            <p>Women</p>
+                            <p>Men</p>
+                            <p>Schuhe Shoes</p>
+                            <p> Bag & Accessories</p>
+                            <p>Top Brands</p>
+                            <p>Sale & Special Offers</p>
+                            <p>Look Book</p>
                         </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+                        <div class="box">
+                            <h4>INFORMATION</h4>
+                            <p>New in</p>
+                            <p>Women</p>
+                            <p>Men</p>
+                            <p>Schuhe Shoes</p>
+                            <p> Bag & Accessories</p>
+                            <p>Top Brands</p>
+                            <p>Sale & Special Offers</p>
+                            <p>Look Book</p>
                         </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
+                        <div class="box">
+                            <h4>CUSTOMER SERVICE</h4>
+                            <p>New in</p>
+                            <p>Women</p>
+                            <p>Men</p>
+                            <p>Schuhe Shoes</p>
+                            <p> Bag & Accessories</p>
+                            <p>Top Brands</p>
+                            <p>Sale & Special Offers</p>
+                            <p>Look Book</p>
                         </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-con">
-                    <img src="img/fas1..png" alt="">
-                    <div>
-                        <h4>Some Headline Here</h4>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid obcaecati quo voluptatibus nam natus atque omnis ratione in hic!</p>
-                        <div class="button">
-                            <button>Read More</button>
-                        </div>
-                    </div>
-                </div>                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-        </div>
-    </section>
-<!-- End Designing The latest section -->
-
-<!-- Start Designing The barnd section -->
-    <section class="brand">
-        <div class="container">
-            <h3>Shop by Brand</h3>
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="icon-con">
-                        <div class="icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="icon-para">
-                            <p>Themeforest</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="icon-con">
-                        <div class="icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="icon-para">
-                            <p>Themeforest</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="icon-con">
-                        <div class="icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="icon-para">
-                            <p>Themeforest</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="icon-con">
-                        <div class="icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="icon-para">
-                            <p>Themeforest</p>
+                        <div class="box">
+                            <h4>NEWSLETTER</h4>
+                            <p>Sign Up For News Letter</p>
+                            <div class="input">
+                                <input type="email" placeholder="Type Your Email">
+                            </div>
+                            <button>SUBSCRIBE</button>
+                            <div class="sm-icons">
+                                <div><i class="fab fa-facebook"></i></div>
+                                <div><i class="fab fa-twitter"></i></div>
+                                <div><i class="fab fa-youtube"></i></div>
+                                <div><i class="fab fa-google"></i></div>
+                                <div><i class="fab fa-vimeo-v"></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-<!-- End Designing The barnd section -->
+        </section>
+        <!-- End Main-->
+    </main>
 
     @endsection

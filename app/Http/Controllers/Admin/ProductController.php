@@ -27,10 +27,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function create()
     {
         //
-        return view("admin.products.create");
+        $products = Product::all();
+        return view('admin.products.create', compact('products'));
+        
     }
 
     /**
@@ -42,12 +45,34 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        Product::create([
-            'pname' => $request->pname,
-            'pimg' =>$request->pimg,
-            'pprice' =>$request->pprice,
+        $validator = Validator::make($request->all() , [
+            'pimg' => ['required'],
+            'pname' => ['required', 'min:4' , 'max:225'],
+            'pprice' => ['required'],
+            'cat_id' => ['required'],
         ]);
-        return redirect()->back()->with(['success' => 'Product has been added']);
+        // ERROR: There is no validation rule named string
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        $products = new Product();
+        $products->pname = $request->input('pname');
+        $products->pprice = $request->input('pprice');
+        $products->cat_id = $request->input('cat_id');
+        if($request->hasFile('pimg')){
+            $file = $request->file('pimg');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/products/' , $filename);
+            $products->pimg = $filename;
+        }
+        else{
+            return $request;
+            $products->pimg = '';
+        }
+        $products->save();
+        return redirect()->back()->with(['success' => 'New Product has been added']);
     }
 
     /**
@@ -59,6 +84,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $products = Product::findOrFail($id);
+        return view('admin.products.productinfo' , compact('product'));
     }
 
     /**
@@ -84,6 +111,34 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validator = Validator::make($request->all() , [
+            'pimg' => ['required'],
+            'pname' => ['required', 'min:4' , 'max:225'],
+            'pprice' => ['required'],
+        ]);
+        // ERROR: There is no validation rule named string
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        // Second insert new inputs in DB
+        $products = Product::findOrFail($id);
+        $products->pname = $request->input('pname');
+        $products->pprice = $request->input('pprice');
+
+        if($request->hasFile('pimg')){
+            $file = $request->file('pimg');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/products/' , $filename);
+            $products->pimg = $filename;
+        }
+        else{
+            return $request;
+            $products->pimg = '';
+        }
+        $products->update();
+        return redirect()->back()->with(['success' => 'Product has been updated']);
     }
 
     /**
@@ -97,6 +152,6 @@ class ProductController extends Controller
         //
         $products = Product::findOrFail($id);
         $products->delete();
-        return redirect()->back()->with(['success' => 'User has been Delete']);
+        return redirect()->back()->with(['success' => 'Product has been deleted']);
     }
 }

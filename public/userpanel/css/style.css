@@ -1,0 +1,958 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.main-color {
+    color: #E99497;
+}
+
+.line {
+    border: 1px solid black;
+    flex-basis: 39%;
+    height: 4px;
+}
+
+.checked {
+    color: #E99497;
+}
+
+
+
+
+
+/*----------Start Header--------*/
+.header-container {
+    background-color: #DDDDDD;
+
+}
+
+
+
+
+.header-container .cart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+
+
+
+.header-container .cart-container ul {
+    display: flex;
+    list-style: none;
+    flex-basis: 50%;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.header-container .cart-container ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+
+}
+
+.header-container .cart-container ul li a:active {
+    color: #E99497;
+}
+
+.header-container .cart-container ul li a:hover {
+    color: #E99497;
+}
+
+.header-container .cart-container ul li svg {
+    margin-right: 10px;
+}
+
+.search {
+    text-align: center;
+    padding: 25px;
+}
+
+.fashion {
+    background-color: black;
+}
+
+.fashion nav .icon h1 {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.fashion nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fashion nav ul {
+
+    display: flex;
+    list-style: none;
+    flex-basis: 60%;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.fashion nav ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.fashion nav ul li a:active {
+    color: #E99497;
+}
+
+.fashion nav ul li a:hover {
+    color: #E99497;
+
+}
+
+.fashion .mobile-btn {
+    display: none;
+    color: white;
+}
+
+.banner {
+    background-image: url(../img/photo-1483985988355-763728e1935b.jfif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.banner .swiper-container {
+    width: 100%;
+    height: 25%;
+    top: 45%;
+    position: absolute;
+}
+
+.banner .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: rgba(255, 99, 71, 0.3);
+
+}
+
+.banner .swiper-slide h3 {
+    color: white;
+    font-family: ui-sans-serif;
+}
+
+.banner .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*---------End Header--------*/
+/*---------Start Main--------*/
+/*---------Start COLLECTION--*/
+
+
+.collection {
+    padding-top: 50px;
+}
+
+.collection .trend {
+    display: flex;
+}
+
+.collection .trend .woman .text {
+    text-align: center;
+}
+
+.collection .trend .woman img {
+    padding-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.collection .trend .woman p {
+    width: 80%;
+}
+
+.collection .trend .woman button {
+    padding: 5px 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.collection .trend .men {
+    width: 100%;
+}
+
+.collection .trend .men .box {
+    padding: 15px 0;
+}
+
+/*---------END COLLECTION----*/
+
+/*Start feature*/
+
+.feature {
+    padding-top: 50px;
+}
+
+.feature .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature .All {
+    padding-bottom: 25px;
+}
+
+.feature .All ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0px;
+
+}
+
+
+.feature .All ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.feature .All ul a:hover {
+    color: #E99497;
+}
+
+
+.feature .All ul a:active {
+    color: #E99497;
+}
+
+
+
+.feature .box {
+    padding: 15px 0;
+}
+
+.feature .box .star {
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.feature .box .price {
+    transform: translate(0px, -23.5rem);
+    text-align: end;
+    color: white;
+}
+
+.feature .box .price span {
+    background-color: black;
+}
+
+
+.feature .box .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.feature .box .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+
+}
+
+.feature .box .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+
+}
+
+.feature .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.feature .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.feature .swiper-slide {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.feature .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.feature .first .swiper-pagination-bullet-active {
+    color: #fff;
+    background: #007aff;
+}
+
+
+/* End Feature*/
+/*Start image*/
+
+.image {
+    padding-top: 50px;
+}
+
+.image .photo {
+    display: flex;
+}
+
+
+.image .photo .box .discount {
+    width: 30%;
+    transform: translate(22rem, -11.5rem);
+    color: white;
+    font-weight: bold;
+}
+
+
+
+.image .photo .box .text {
+    width: 50%;
+    transform: translate(16rem, -11.5rem);
+    color: white;
+    font-size: 40px;
+}
+
+
+
+.image .photo .box .na {
+    transform: translate(5rem, -11.5rem);
+    color: white;
+    font-size: 30px;
+    letter-spacing: 5px;
+    width: 75%;
+    text-align: center;
+}
+
+.image .photo .box .dia {
+    transform: translate(11rem, -10.5rem);
+    color: white;
+    font-size: 35px;
+    width: 50%;
+    font-weight: bold;
+}
+
+/*End Image*/
+/* Start Trend*/
+
+
+
+.top .trend {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.top .first,
+.top .second {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.top .first .box,
+.top .second .box {
+    padding: 15px 0;
+}
+
+.top .first .box .star,
+.top .second .box .star {
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.top .first .box .price,
+.top .second .box .price {
+    transform: translate(0px, -23.5rem);
+    text-align: end;
+    color: white;
+}
+
+.top .first .box .price span,
+.top .second .box .price span {
+    background-color: black;
+}
+
+
+.top .first .box .sm-icons,
+.top .second .box .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.top .first .box .sm-icons div,
+.top .second .box .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+
+}
+
+.top .first .box .sm-icons div:hover,
+.top .second .box .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+
+}
+
+.top .button {
+    padding: 30px 0;
+    text-align: center;
+
+}
+
+.top .button button {
+    padding: 5px 20px;
+    background: none;
+    cursor: pointer;
+}
+
+
+/* End Trend*/
+/*Start shoes*/
+
+
+.shoes {
+    background-image: url(../img/photo-1485736231968-0c8ad5c9e174.jfif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 85vh;
+    width: 100%;
+}
+
+.shoes .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.shoes .items .quote {
+    padding: 40px 0;
+    font-size: 40px;
+}
+
+.shoes .items .text {
+    color: white;
+    width: 75%;
+    padding: 25px 0;
+}
+
+.shoes .items .pic {
+    padding: 25px 0;
+}
+
+.shoes .items .pic h5,
+.shoes .items .pic p {
+    color: white;
+    text-align: center;
+
+}
+
+/*End shoes*/
+/*Start Latest*/
+
+.latest {
+    padding-top: 50px;
+}
+
+.latest .text {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.latest .blog {
+    display: flex;
+    justify-content: space-between;
+}
+
+.latest .blog .box {
+    flex-basis: 28%;
+}
+
+.latest .blog .box button {
+    padding: 5px 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.latest .blog .box .text-1{
+    text-align: center;
+}
+
+/* End latest*/
+/* Start theme*/
+
+.theme {
+    padding-top: 50px;
+}
+
+.theme .text {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.theme .icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* End theme*/
+/*Start Footer*/
+
+
+.about {
+    padding-top: 50px;
+    background-color: rgb(60, 60, 60);
+}
+
+.about .footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about .footer h4,
+.about .footer p {
+    color: white;
+
+}
+
+.about .footer button {
+    padding: 5px 50px;
+    background: none;
+    cursor: pointer;
+    margin: 15px 0px;
+    background-color: #E99497;
+}
+
+.about .footer .sm-icons {
+    margin-bottom: 12.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.about .footer .sm-icons div {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: .7s ease-in-out;
+}
+
+.about .footer .sm-icons div:hover {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+
+}
+
+footer {
+    background-color: black;
+}
+
+footer .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .text .ella,
+footer .text .visa {
+    color: white;
+    padding: 15px 0;
+}
+
+
+/*End Footer*/
+/*---------End Main----------*/
+
+
+
+
+
+@media(max-width:1200px) {
+    .collection .trend {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .collection .trend .woman img,
+    .collection .trend .woman p,
+    .collection .trend .men {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .image .photo {
+        flex-wrap: wrap;
+
+    }
+
+    .image .photo .box {
+        height: 60.5vh;
+        width: 100%;
+    }
+
+    .image .photo .box img {
+        width: 100%;
+    }
+
+    .image .photo .box .discount {
+
+        transform: translate(34rem, -14.5rem);
+    }
+
+    .image .photo .box .text {
+        transform: translate(28rem, -14.5rem);
+
+    }
+
+    .image .photo .box .na {
+        transform: translate(14rem, -15.5rem);
+    }
+
+    .image .photo .box .dia {
+        transform: translate(22rem, -14.5rem);
+    }
+
+    .top .first,
+    .top .second{
+        flex-wrap: wrap;
+    }
+
+    .line{
+        flex-basis: 30%;
+    }
+
+    .feature .swiper-slide{
+        flex-wrap: wrap;
+    }
+
+    
+}
+
+
+
+
+
+
+@media(max-width:992px) {
+    .shoes .items .text{
+        width: 100%;
+        text-align: center;
+    }
+
+    .image .photo .box {
+        height: 45.5vh;
+    }
+
+    .image .photo .box .dia{
+        transform: translate(13rem, -12.5rem);
+    }
+
+    .image .photo .box .na{
+        transform: translate(7rem, -14.5rem);
+    }
+
+    .image .photo .box .discount{
+        transform: translate(24rem, -14.5rem);
+    }
+
+    .image .photo .box .text{
+        transform: translate(19rem, -12.5rem);
+    }
+
+    .theme .icon {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+@media(max-width:768px) {
+    .header-container .cart-container ul {
+        display: none;
+    }
+
+    .header-container .cart-container {
+        justify-content: center;
+    }
+    .image .photo .box {
+        height: 33.5vh;
+    }
+
+    .fashion .mobile-btn {
+        display: block;
+        color: white;
+    }
+
+    .fashion nav ul {
+        display: none;
+    }
+
+    .latest .blog {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .image .photo .box .discount{
+        transform: translate(17rem, -10.5rem);
+    }
+
+    .image .photo .box .text{
+        transform: translate(13rem, -10.5rem);
+        width: 60%;
+    }
+
+    .image .photo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .image .photo .box .na{
+        transform: translate(3rem, -9.5rem);
+        font-size: 25px;
+        width: 90%;
+    }
+
+    .image .photo .box .dia{
+        transform: translate(8rem, -8.5rem);
+        font-size: 30px;
+        width: 60%;
+    }
+
+    .about .footer{
+        flex-wrap: wrap;
+    }
+
+    footer .text {
+        text-align: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+
+@media(max-width:576px) {
+    .image .photo .box .discount{
+        transform: translate(12rem, -7.5rem);
+    }
+
+    .image .photo .box .text{
+        transform: translate(7rem, -7.5rem);
+        width: 70%;
+        font-size: 25px;
+    }
+
+    .image .photo .box {
+        height: 35.5vh;
+    }
+
+    .image .photo .box .na{
+        transform: translate(1rem, -6.5rem);
+        font-size: 17px;
+        
+        width: 90%;
+    }
+
+    .image .photo .box .dia{
+        transform: translate(5rem, -5.5rem);
+        font-size: 23px;
+        width: 60%;
+    }
+
+    .top .trend{
+        padding: 20px 0;
+    }
+
+    .line{
+        flex-basis: 20%;
+    }
+
+    .shoes .items .quote{
+        padding: 5px 0;
+        font-size: 35px;
+    }
+}
+
+@media(max-width:380px){
+    .image .photo .box .discount{
+        transform: translate(13rem, -7.5rem);
+    }
+
+    .image .photo .box .text{
+        transform: translate(4rem, -7.5rem);
+        width: 80%;
+        
+        font-size: 25px;
+    }
+
+    .image .photo .box .na{
+        transform: translate(1rem, -6.5rem);
+        font-size: 17px;
+        width: 95%;
+        
+    }
+}
+
+
+
+@media(max-width:280px) {
+    .image .photo .box .discount{
+        transform: translate(9rem, -5.5rem);
+        width: 48%;
+    }
+
+    .image .photo .box .text{
+        transform: translate(3rem, -5.5rem);
+        width: 80%;
+        font-size: 20px;
+    }
+
+    .image .photo .box {
+        height: 17.5vh;
+    }
+
+    .image .photo .box .na{
+        transform: translate(0rem, -4.5rem);
+        font-size: 10px;
+        width: 100%;
+        
+    }
+
+    .image .photo .box .dia{
+        transform: translate(4rem, -4.5rem);
+        font-size: 17px;
+        width: 60%;
+    }
+
+    .shoes .items .quote{
+        padding: 5px 0;
+        font-size: 25px;
+    }
+}

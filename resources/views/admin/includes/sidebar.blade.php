@@ -36,6 +36,18 @@
           <li><a class="collapse-item" href="{{route('products.create')}}"><i class="fas fa-fw fa-user-plus"></i>Add product</a></li>
         </ul>
       </li>
+
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Category</span>
+          </a>
+        <ul class="sub">
+          <li><a class="collapse-item" href="{{route('categories.index')}}"><i class="fas fa-fw fa-user"></i>All Products</a></li>
+          <li><a class="collapse-item" href="{{route('categories.create')}}"><i class="fas fa-fw fa-user-plus"></i>Add product</a></li>
+        </ul>
+      </li>
+
       <li class="sub-menu">
         <a href="javascript:;">
           <i class="fa fa-tasks"></i>

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
+use App\User\Cart;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class indexController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,33 @@ class indexController extends Controller
      */
     public function index()
     {
-        //
-        return view('user.index');
+        $products = Product::all();
+        return view('user.index',compact('products'));
+    }
+    
+    public function addToCart(Product $product)
+    {
+        if(session()->has('cart'))
+        {
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = new Cart();
+        }
+        $cart->add($product);
+        session()->put('cart' , $cart);
+        return redirect()->route('user-view')->with('success','Product was addes to your cart');
+    }
+
+    public function showcart()
+    {   
+        if(session()->has('cart'))
+        {
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = null;
+        }
+        
+        return view('user.carts.showcart' , compact('cart'));
     }
 
     /**
@@ -47,7 +75,8 @@ class indexController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.profiles.showprofile' , compact('user'));
     }
 
     /**

@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,11 @@ Route::middleware('auth' , 'check.admin')->prefix("admin")->group(function(){
    });
 
    Route::resource("/products" , ProductController::class);
+   Route::get('/post' , function(){
+      return "hello from admin page";
+   });
+
+   Route::resource("/categories" , CategoryController::class);
    Route::get('/post' , function(){
       return "hello from admin page";
    });
