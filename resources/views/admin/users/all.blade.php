@@ -36,8 +36,9 @@
                         <td><img src="{{asset('uploads/users/' . $user->img)}}" style="max-width: 68%; border-bottom-width:0"></td>
                         <th>{{$user->name}}</th>
                         <td>{{$user->email}}</td>
-                        <td class="box">
-                            <a class="btn btn-info" href="">show</a>
+                        <td>
+                            <div class="box">
+                                <a class="btn btn-info" href="">show</a>
                             <a class="btn btn-warning" href="{{route('user.edit' , $user->id)}}">Edit</a>
                             {{--<a class="btn btn-danger" href="">Delete</a>--}}
                             <form method="post" action="{{route('user.destroy' , $user->id)}}">
@@ -45,6 +46,7 @@
                                 {{method_field('DELETE')}}
                                 <input type="submit" class="btn btn-danger" value="Delete">
                             </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

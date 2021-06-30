@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\RelationsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\User\IndexController;
+use App\Http\Controllers\User\indexController;
+
+
 
 
 /*
@@ -27,14 +29,16 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/user' ,[indexController::class , 'index'])->middleware('auth' ,'check.user')->name('user');
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth','check.user')->prefix("user")->group(function(){
-    Route::get("/addToCart/{product}" ,[App\Http\Controllers\User\IndexController::class, 'addToCart'])->name('cart.add');
-    Route::get("shopping-cart", [App\Http\Controllers\User\IndexController::class, 'showcart'])->name('cart.show');
-    Route::resource("/profile", 'User\IndexController');
-    Route::get("/search", [App\Http\Controllers\SearchController::class, 'index'])->name('search');
-});
+ Route::middleware('auth','check.user')->prefix("user")->group(function(){
+    Route::get('/addToCart/{product}', [App\Http\Controllers\User\indexController::class, 'addToCart'])->name('cart.add');
+    Route::get('shopping-cart', [App\Http\Controllers\User\indexController::class, 'showcart'])->name('cart.show');
+     Route::resource("/profile", 'App\Http\Controllers\User\indexController');
+    Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('search');
+
+ });
 
 
 Route::get('/login/facebook' , [App\Http\Controllers\Auth\LoginController::class , 'redirectToFacebook'])->name('login.facebook');
@@ -50,3 +54,7 @@ Route::get('/email',function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -59,12 +59,12 @@
                             <div class="swiper-slide">
                                 @foreach ($products as $product)
                                 <div class="box">
-                                    <img src="{{asset('uploads/products/' . $products->pimg)}}" alt="">
+                                    <img src="{{URL::asset('uploads/products/' . $product->pimg)}}" alt="">
                                     <div class="price">
-                                        <span> {{$products->pprice}} L.E</span>
+                                        <span> {{$product->pprice}} L.E</span>
                                     </div>
                                     <div class="text">
-                                        <h2>{{$products->pname}}</h2>
+                                        <h2>{{$product->pname}}</h2>
                                         <div class="star">
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>

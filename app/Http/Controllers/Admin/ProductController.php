@@ -32,7 +32,8 @@ class ProductController extends Controller
     {
         //
         $products = Product::all();
-        return view('admin.products.create', compact('products'));
+        $categories = Category::all();
+        return view('admin.products.create', compact('products', 'categories'));
         
     }
 
@@ -46,10 +47,10 @@ class ProductController extends Controller
     {
         //
         $validator = Validator::make($request->all() , [
+            // 'cat_id' => ['required'],
             'pimg' => ['required'],
-            'pname' => ['required', 'min:4' , 'max:225'],
+            'pname' => ['required', 'min:3' , 'max:225'],
             'pprice' => ['required'],
-            'cat_id' => ['required'],
         ]);
         // ERROR: There is no validation rule named string
         if($validator->fails())
@@ -57,9 +58,9 @@ class ProductController extends Controller
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
         $products = new Product();
+        $products->cat_id = $request->input('cat_id');
         $products->pname = $request->input('pname');
         $products->pprice = $request->input('pprice');
-        $products->cat_id = $request->input('cat_id');
         if($request->hasFile('pimg')){
             $file = $request->file('pimg');
             $extension = $file->getClientOriginalExtension();
@@ -72,7 +73,9 @@ class ProductController extends Controller
             $products->pimg = '';
         }
         $products->save();
-        return redirect()->back()->with(['success' => 'New Product has been added']);
+        return redirect()->back()->with(['success' => 'Product has been added']);
+
+        
     }
 
     /**
@@ -85,7 +88,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::findOrFail($id);
-        return view('admin.products.productinfo' , compact('product'));
+        return view('admin.products.showproduct' , compact('products'));
     }
 
     /**

@@ -45,9 +45,9 @@ class UserController extends Controller
     {
         //Make Validate 
         $validator = Validator::make($request->all() , [
-                                     'name' => ['required' , 'string' , 'min:4', 'max:255'],
-                                     'email' => ['required' , 'email' , 'unique:users'],
-                                     'password'=>['required', 'min:8']  
+                                    'name' => ['required' , 'string' , 'min:4', 'max:255'],
+                                    'email' => ['required' , 'email' , 'unique:users'],
+                                    'password'=>['required', 'min:8']  
         ]);
           if($validator->fails()){
               return redirect()->back()->withErrors($validator)->withInput($request->all());
@@ -73,6 +73,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::findOrFail($id);
+        return view('admin.users.userprofile' , compact('user'));
     }
 
     /**

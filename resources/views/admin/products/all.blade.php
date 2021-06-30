@@ -40,14 +40,16 @@
                         <th>{{$product->pprice}}</th>
                         <th>{{$product->category->cat_name}}</th>
                         <td class="d-flex tablestyle">
-                            <a class="btn btn-info m-1" href="{{route('product.show' , $product->id)}}">Show</a>
+                            <div class="box">
+                                <a class="btn btn-info m-1" href="{{route('products.show' , $product->id)}}">Show</a>
                             <a class="btn btn-warning m-1"
-                                href="{{route('product.edit' , $product->id)}}">Edit</a>
-                            <form method="POST" action="{{route('product.destroy' , $product->id)}}">
+                                href="{{route('products.edit' , $product->id)}}">Edit</a>
+                            <form method="POST" action="{{route('products.destroy' , $product->id)}}">
                                 @csrf
                                 {{method_field('DELETE')}}
                                 <input type="submit" class="btn btn-danger m-1" value="Delete">
                             </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

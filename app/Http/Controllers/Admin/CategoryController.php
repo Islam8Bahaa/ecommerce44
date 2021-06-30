@@ -57,17 +57,18 @@ class CategoryController extends Controller
             $file = $request->file('cat_img');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('uploads/categories/' , $filename);
+            $file->move('uploads/products/' , $filename);
             $categories->cat_img = $filename;
         }
         else{
-            return $request;
             $categories->cat_img = '';
+            
         }
         $categories->save();
-        return redirect()->back()->with(['success' => 'New Category has been added']);
+        return redirect()->back()->with(['success' => 'Product has been added']);
+
+        
     }
-    
 
     /**
      * Display the specified resource.
@@ -79,7 +80,7 @@ class CategoryController extends Controller
     {
         //
         $categories = Category::findOrFail($id);
-        return view('admin.categories.categoryinfo' , compact('category'));
+        return view('admin.categories.categoryall' , compact('category'));
     }
 
     /**

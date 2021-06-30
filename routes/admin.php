@@ -31,7 +31,4 @@ Route::middleware('auth' , 'check.admin')->prefix("admin")->group(function(){
    });
 
    Route::resource("/categories" , CategoryController::class);
-   Route::get('/post' , function(){
-      return "hello from admin page";
-   });
 });

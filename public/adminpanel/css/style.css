@@ -24,6 +24,8 @@ body {
     font-size:13px;
 }
 
+
+
 ul li {
     list-style: none;
 }
@@ -72,6 +74,10 @@ a, a:hover, a:focus {
 	background-color: #ffffff;
 	outline: none !important;
 	text-decoration: none;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    width: 5%;
 }
 
 
@@ -170,6 +176,7 @@ a, a:hover, a:focus {
 }
 .box{
     display: flex;
+    justify-content: space-evenly;
     
 }
 
@@ -1638,7 +1645,7 @@ PANELS CONFIGURATIONS
 }
 
 /* Grid Showcase*/
-
+.show-grid{
 	margin-bottom: 15px;
 }
 
@@ -3499,3 +3506,10 @@ ul.chat-available-user li a:hover {
 #copyrights a {
   color: #fff;
 }
+
+@media (min-width: 992px){
+    .container {
+        width: 100%; 
+    }
+}
+

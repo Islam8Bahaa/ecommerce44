@@ -7,6 +7,15 @@
     <div id="main-content" class="container-fluid">
         <!-- Nested Row within Card Body -->
         <div class="row all">
+            <div class="row">
+                @if (Session::has('success'))
+                <div class="card col-12 mb-4 py-3 border-left-success">
+                    <div class="card-body">
+                        {{Session::get('success')}}
+                    </div>
+                </div>
+                @endif
+            </div>
             {{-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> --}}
             <div class="col-lg-12">
                 <div class="p-5">
@@ -33,6 +42,11 @@
                             @error('pprice')
                             <small class="text-danger"> {{$message}} </small>
                             @enderror
+                        </div>
+                        <div class="form-group row">
+                            @foreach($categories as $category)
+                                <input type="radio" class="form-control form-control-user" name="cat_id" value="{{$category->id}}">{{$category->cat_name}}
+                            @endforeach
                         </div>
                         <input type="submit" value="Add Product" class="btn btn-primary btn-user btn-block">
                     </form>

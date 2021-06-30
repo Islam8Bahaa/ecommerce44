@@ -36,18 +36,18 @@
                     <tr>
                         <td><img src="{{asset('uploads/products/' . $category->cat_img)}}"
                                 style="max-width: 68%; border-bottom-width:0"></td>
-                        <th>{{$categories->pname}}</th>
-                        <th>{{$categories->pprice}}</th>
-                        <th>{{$categories->category->cat_name}}</th>
+                        <th>{{$category->cat_name}}</th>
                         <td class="d-flex tablestyle">
-                            <a class="btn btn-info m-1" href="{{route('categories.show' , $product->id)}}">Show</a>
+                            <div class="box" >
+                                <a class="btn btn-info m-1" href="{{route('categories.show' , $category->id)}}">Show</a>
                             <a class="btn btn-warning m-1"
-                                href="{{route('categories.edit' , $product->id)}}">Edit</a>
-                            <form method="POST" action="{{route('categories.destroy' , $product->id)}}">
+                                href="{{route('categories.edit' , $category->id)}}">Edit</a>
+                            <form method="POST" action="{{route('categories.destroy' , $category->id)}}">
                                 @csrf
                                 {{method_field('DELETE')}}
                                 <input type="submit" class="btn btn-danger m-1" value="Delete">
                             </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
@@ -58,7 +58,9 @@
     </div>
 </div>
 
-        {{$categories->links()}}
+        <div class="container" style="text-align: center">
+            {{$categories->links()}}
+        </div>
         @endsection
 
 

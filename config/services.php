@@ -36,5 +36,4 @@ return [
         'redirect' => 'http://localhost:8000/ecommerce44/public/login/facebook/callback',
     ],
     
-
 ];

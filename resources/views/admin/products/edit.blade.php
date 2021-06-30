@@ -12,7 +12,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Update Prodcut!</h1>
                             </div>
-                            <form method="POST" action="{{route('product.update' , $product->id)}}" class="user m-5" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('products.update')}}" class="user m-5" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     @csrf
                                     {{method_field('PUT')}}

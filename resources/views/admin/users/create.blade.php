@@ -23,6 +23,7 @@
                     <div class="form-group row">
                         {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
                         @csrf
+                        
                         <div class="col-sm-12 mb-3 mb-sm-0">
                             <input type="text" class="form-control form-control-user" name="name"
                                 placeholder="username">
