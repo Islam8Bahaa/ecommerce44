@@ -19,7 +19,7 @@ class CheckAdmin
     public function handle(Request $request, Closure $next)
     {
         $isAdmin = Auth::user()->userid ; 
-        if($isAdmin == 1){
+        if($isAdmin == 1 or 2){
             return redirect()->route('admin');
             
         }

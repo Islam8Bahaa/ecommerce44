@@ -10,6 +10,7 @@ use App\Http\Controllers\User\indexController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,13 +33,13 @@ Route::get('/user' ,[indexController::class , 'index'])->middleware('auth' ,'che
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- Route::middleware('auth','check.user')->prefix("user")->group(function(){
+Route::middleware('auth','check.user')->prefix("user")->group(function(){
     Route::get('/addToCart/{product}', [App\Http\Controllers\User\indexController::class, 'addToCart'])->name('cart.add');
     Route::get('shopping-cart', [App\Http\Controllers\User\indexController::class, 'showcart'])->name('cart.show');
-     Route::resource("/profile", 'App\Http\Controllers\User\indexController');
+    Route::resource("/profile", 'App\Http\Controllers\User\indexController');
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('search');
 
- });
+});
 
 
 Route::get('/login/facebook' , [App\Http\Controllers\Auth\LoginController::class , 'redirectToFacebook'])->name('login.facebook');

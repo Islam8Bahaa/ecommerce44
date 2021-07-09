@@ -1213,6 +1213,6 @@
             </div>
         </section>
         <!-- End Main-->
-    </main>
+</main>
 
     @endsection

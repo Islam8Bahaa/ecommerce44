@@ -31,7 +31,7 @@ class IndexController extends Controller
         }
         $cart->add($product);
         session()->put('cart' , $cart);
-        return redirect()->route('user-view')->with('success','Product was addes to your cart');
+        return redirect()->route('user')->with('success','Product was addes to your cart');
     }
 
     public function showcart()
